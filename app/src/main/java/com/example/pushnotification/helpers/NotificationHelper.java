@@ -11,7 +11,6 @@ public class NotificationHelper {
     private static final String CHANEL_ID = "Push Notification";
 
     public static void displayNotification(Context context, String title, String body) {
-
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(context, CHANEL_ID)
                 .setSmallIcon(R.id.icon_only)
