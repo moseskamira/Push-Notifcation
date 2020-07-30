@@ -21,7 +21,6 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
-
     EditText emailEt, passwordEt;
     String email, password;
 
@@ -31,13 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         emailEt = findViewById(R.id.email_et);
         passwordEt = findViewById(R.id.password_et);
-
         firebaseAuth = FirebaseAuth.getInstance();
-
-
     }
-
-
 
     public void getLoginDetails(View view) {
         email = emailEt.getText().toString();
@@ -62,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                             goToHomePage();
 
                         }else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-//                            Toast.makeText(MainActivity.this, "User Already Exists", Toast.LENGTH_LONG).show();
                             goToHomePage();
                         }else {
                             Toast.makeText(MainActivity.this, Objects.requireNonNull(task
@@ -76,12 +69,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, USerProfileActivity.class));
 
     }
-
-    private void sendPushNotification() {
-
-
-    }
-
-
-
 }
