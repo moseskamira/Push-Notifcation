@@ -1,13 +1,15 @@
-package com.example.pushnotification;
+package com.example.pushnotification.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.pushnotification.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -60,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                             goToHomePage();
 
                         }else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                            Toast.makeText(MainActivity.this, "User Already Exists", Toast.LENGTH_LONG).show();
-//                            goToHomePage();
+//                            Toast.makeText(MainActivity.this, "User Already Exists", Toast.LENGTH_LONG).show();
+                            goToHomePage();
                         }else {
                             Toast.makeText(MainActivity.this, Objects.requireNonNull(task
                                     .getException()).getMessage(), Toast.LENGTH_LONG).show();
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToHomePage() {
+        startActivity(new Intent(MainActivity.this, USerProfileActivity.class));
 
     }
 
