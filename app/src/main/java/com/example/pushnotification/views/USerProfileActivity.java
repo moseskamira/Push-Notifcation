@@ -22,9 +22,7 @@ public class USerProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     public static final String NODE_USERS = "users";
-
-
-    private String userToken, email;
+    private String userToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,7 @@ public class USerProfileActivity extends AppCompatActivity {
     }
 
     private void saveToFireBaseDataBase() {
-        email = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getEmail();
+        String email = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getEmail();
         User newUser = new User();
         newUser.setUserEmail(email);
         newUser.setUserToken(userToken);
